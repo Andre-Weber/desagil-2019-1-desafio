@@ -36,17 +36,32 @@ public class Controller implements KeyListener, ActionListener {
         // constantes disponíveis na classe KeyEvent. Uma lista dessas constantes pode ser vista em
         // https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/event/KeyEvent.html.
         switch (event.getKeyCode()) {
+
             case KeyEvent.VK_UP:
-                humanPlayer.moveUp();
+                if (model.getWinner()== humanPlayer) {
+                    humanPlayer.moveUp();
+                }
+
                 break;
             case KeyEvent.VK_RIGHT:
-                humanPlayer.moveRight();
+                if (model.getWinner()== humanPlayer) {
+                    humanPlayer.moveRight();
+                }
+
                 break;
             case KeyEvent.VK_DOWN:
-                humanPlayer.moveDown();
+
+                if (model.getWinner()== humanPlayer) {
+                    humanPlayer.moveDown();
+                }
+
+
                 break;
             case KeyEvent.VK_LEFT:
-                humanPlayer.moveLeft();
+                if (model.getWinner()== humanPlayer) {
+                    humanPlayer.moveLeft();
+                }
+
                 break;
         }
 
@@ -65,6 +80,10 @@ public class Controller implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         CpuPlayer cpuPlayer = model.getCpuPlayer();
+
+        if(model.getWinner()== cpuPlayer) {
+            cpuPlayer.move();
+        }
 
         cpuPlayer.move();
 

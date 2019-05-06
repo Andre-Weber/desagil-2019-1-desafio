@@ -21,6 +21,7 @@ public class View extends JPanel {
 
     private final Model model;
     private final Map<Element, Image> elementsToImages;
+   // private Model model = new Model();
 
 
     public View(Model model) {
@@ -74,6 +75,13 @@ public class View extends JPanel {
 
         // Linha necessária para evitar atrasos
         // de renderização em sistemas Linux.
+
+        if (model.getHumanPlayer().getRow() == model.getTarget().getRow() && model.getHumanPlayer().getRow() == model.getTarget().getRow()) {
+            model.setWinner(model.getHumanPlayer());
+        } else if (model.getCpuPlayer().getRow() == model.getTarget().getRow() && model.getCpuPlayer().getRow() == model.getTarget().getRow()) {
+            model.setWinner(model.getCpuPlayer());
+        }
+
         getToolkit().sync();
     }
 

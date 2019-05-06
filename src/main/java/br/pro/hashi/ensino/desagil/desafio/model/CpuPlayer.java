@@ -13,6 +13,9 @@ public class CpuPlayer extends Player {
     private final int numRows;
     private final int numCols;
 
+
+
+
     // Por outro lado, o conceito de nó também existe no caso do tabuleiro porque
     // precisamos de algum tipo de objeto para ser guardado na pilha. Veja no final
     // deste arquivo a definição de Node: serve apenas para guardar linha e coluna.
@@ -24,6 +27,7 @@ public class CpuPlayer extends Player {
     // implícito criado pelo relógio. A inicialização desse loop é o construtor.
     public CpuPlayer(int row, int col, Board board) {
         super(row, col, board);
+
 
         numRows = board.getNumRows();
         numCols = board.getNumCols();
@@ -54,6 +58,8 @@ public class CpuPlayer extends Player {
             // Na árvore, precisávamos dar um peek na pilha para descobrir a
             // localização atual. Aqui não precisamos fazer isso, pois já
             // sabemos essa localização: ela é dada pelos atributos row e col.
+
+
 
             if (row > 0 && !visited[row - 1][col]) {
                 move(-1, 0);
